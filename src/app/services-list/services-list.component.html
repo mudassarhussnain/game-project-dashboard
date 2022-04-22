@@ -1,0 +1,135 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <div class="row">
+                        <div class="col-md-10">
+                        <h4 class="card-title ">Services List</h4>
+                    </div>
+                    <div class="col-md-2">
+                        <!-- <p class="card-category"> Here are all the Services we provide</p> -->
+                        <button data-toggle="modal" (click)="getAndCreateService('createService','')"
+                            class="btn btn-secondary" data-target="#exampleModal" data-whatever="@mdo">Add+</button>
+                    </div>
+                </div>
+                </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Sr#</th>
+                                    <th>
+                                        Service Name
+                                    </th>
+                                    <th>Image</th>
+                                    <th>Description</th>
+                                    <th>
+                                        Action
+                                    </th>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let service of services; let i=index;">
+                                        <td>
+                                            {{i+1}}
+                                        </td>
+                                        <td>
+                                            {{service.name}}
+                                        </td>
+                                        <td>{{service.image}}</td>
+                                        <td>{{service.description}}</td>
+
+
+                                        <td><a><i class="fa-solid fa-trash-can" (click)="deleteService(service.id)"></i></a>{{" "}}
+                                            <a (click)="getAndCreateService('updateService',service.id)" data-toggle="modal"
+                                                data-target="#exampleModal" data-whatever="@mdo"><i
+                                                    class="fa-solid fa-pen-to-square"></i></a>
+                                        </td>
+
+                                        <!-- <td><a (click)="deleteUser(user.id)"><i class="fa-solid fa-trash-can"></i></a>{{"    "}}
+                                        <a (click)="getUser(user.id)" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa-solid fa-pen-to-square"></i></a></td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" *ngIf='status=="createService"'> <b>Add Service </b></h5>
+                <h5 class="modal-title" id="exampleModalLabel" *ngIf='status=="updateService"'> <b>Update Service </b>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addService">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <mat-form-field class="example-full-width">
+                                <input matInput  formControlName="image" type="file" (change)="handleImagetoInput($event.target.files)" >
+                                <span class="text-danger"
+                                    *ngIf="(addServiceControl.image.touched || submitted) && addServiceControl.image.errors?.required">
+                                    Field required
+                                </span>
+                            </mat-form-field>
+                        </div>
+                        <!-- <div class="col-md-5">
+                            <mat-form-field class="example-full-width">
+                                <img [src]="handleImagetoInput" alt="image" height="50" width="50">
+                            </mat-form-field>
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Name" formControlName="name" type="text">
+                                <span class="text-danger"
+                                    *ngIf="(addServiceControl.name.touched || submitted) && addServiceControl.name.errors?.required">
+                                    Field required
+                                </span>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <textarea matInput placeholder="Description" formControlName="description" type="text">
+        </textarea>
+                                <span class="text-danger"
+                                    *ngIf="(addServiceControl.description.touched || submitted) && addServiceControl.description.errors?.required">
+                                    Field required
+                                </span>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button *ngIf='status=="createService"' mat-raised-button type="submit"
+                    class="btn btn-danger pull-right" (click)="createService()" [disabled]="addService.invalid">Add Service</button>
+                <button mat-raised-button *ngIf='status=="updateService"' (click)="updateService()" [disabled]="addService.invalid" class="btn btn-danger pull-right">Update
+                    Service</button>
+            </div>
+        </div>
+    </div>
+</div>

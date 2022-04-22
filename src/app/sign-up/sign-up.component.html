@@ -1,0 +1,142 @@
+<div class="card" style="width: 30rem; height: 450px; margin-top: 50px;">
+  <div class="card-header card-header-danger">
+    <h4 class="card-title ">Admin Register</h4>
+    <p> </p>
+    <!-- <p class="card-category"> Here are all the user's</p> -->
+  </div>
+  <br>
+  <div class="card-body">
+    <form >
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" formControlName="name" type="text">
+            <!-- <span class="text-danger"
+              *ngIf="(registerFormControl.name.touched || submitted) && registerFormControl.name.errors?.required">
+              Field required
+            </span> -->
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width"> 
+            <input matInput placeholder="Email" type="text" formControlName="email">
+            <!-- <span class="text-danger"
+              *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
+              Field required
+            </span> -->
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" type="password" formControlName="password">
+            <!-- <span class="text-danger"
+              *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required">
+              Field required
+            </span> -->
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Confirm Password" type="password" formControlName="confirmPassword">
+            <!-- <span class="text-danger"
+              *ngIf="(registerFormControl.confirmPassword.touched || submitted) && registerFormControl.confirmPassword.errors?.required">
+              Field required
+            </span> -->
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="City" type="text" formControlName="city">
+            <!-- <span class="text-danger"
+            *ngIf="(registerFormControl.city.touched || submitted) && registerFormControl.city.errors?.required">
+            Field required
+          </span> -->
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Country" type="text" formControlName="country">
+            <!-- <span class="text-danger"
+            *ngIf="(registerFormControl.country.touched || submitted) && registerFormControl.country.errors?.required">
+            Field required
+          </span> -->
+            
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Phone" type="number" formControlName="phone">
+            <!-- <span class="text-danger"
+            *ngIf="(registerFormControl.phone.touched || submitted) && registerFormControl.phone.errors?.required">
+            Field required
+          </span> -->
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Address" type="text" formControlName="address">
+            <!-- <span class="text-danger"
+            *ngIf="(registerFormControl.address.touched || submitted) && registerFormControl.address.errors?.required">
+            Field required
+          </span> -->
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="ZipCode" type="text" formControlName="zipCode">
+            <!-- <span class="text-danger"
+            *ngIf="(registerFormControl.zipCode.touched || submitted) && registerFormControl.zipCode.errors?.required">
+            Field required
+          </span> -->
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <!-- <select matInput type="text">
+              <option value="">----select your role----</option>
+              <option value="1">Admin</option>
+              <option value="2">User</option>
+            </select> -->
+            <input matInput placeholder="RoleId" type="text" formControlName="Roleid">
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="clearfix"></div>
+      <button mat-raised-button type="button" (click)="onSubmit()" class="btn btn-danger pull-right">Register</button>
+    </form>
+  </div>
+  <div class="card-footer">
+    <p>Already have an account? <a routerLink="/sign_in">Log in</a><p>
+  </div>
+
+</div>
+
+
+
+<!-- <div id="login-form-wrap">
+  <h2>Login</h2>
+  <form id="login-form">
+    <p>
+    <input type="text" id="username" name="username" placeholder="Username" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="email" id="email" name="email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="submit" id="login" value="Login">
+    </p>
+  </form>
+  <div id="create-account-wrap">
+    <p>Not a member? <a href="#">Create Account</a><p>
+  </div>
+</div> -->

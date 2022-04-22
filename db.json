@@ -1,0 +1,113 @@
+{
+  "posts": [
+    {
+      "firstName": "Mudssar",
+      "lastName": "Hussnain",
+      "phone": "828382382382",
+      "email": "mudssarClient@gmail.com",
+      "zipCode": "3434",
+      "city": "karachi",
+      "country": "india",
+      "id": 9
+    },
+    {
+      "firstName": "Mudassar",
+      "lastName": "Hussnain",
+      "phone": "0232883883283",
+      "email": "mudassar@email.com",
+      "zipCode": "1122",
+      "city": "lahore",
+      "country": "pakistan",
+      "id": 2323
+    },
+    {
+      "firstName": "Mudassar",
+      "lastName": "Hussnain",
+      "phone": "0232883883283",
+      "email": "mudassar@email.com",
+      "zipCode": "1122",
+      "city": "lahore",
+      "country": "pakistan",
+      "id": 23256
+    }
+  ],
+  "services": [
+    {
+      "id": 2,
+      "name": "web development",
+      "image": "src/img",
+      "description": "this is des"
+    },
+    {
+      "id": 3,
+      "name": "web development",
+      "image": "src/img",
+      "description": "this is des"
+    }
+  ],
+
+  "projects":[
+    {
+      "id":2,
+      "clientName":"John Smith",
+
+      "phone":"2392939329",
+      "email":"mudassar@gmail.com",
+      "projectName":"3D game",
+      "file":"file/sc/app",
+      "status":"pending"
+    },
+    {
+      "id":3,
+      "clientName":"John Smith",
+      "phone":"2392939329",
+      "email":"mudassar@gmail.com",
+      "projectName":"3D game",
+      "file":"file/sc/app",
+      "status":"pending"
+    },
+    {
+      "id":6,
+      "clientName":"John Smith",
+      "phone":"2392939329",
+      "email":"mudassar@gmail.com",
+      "projectName":"3D game",
+      "file":"file/sc/app",
+      "status":"pending"
+    }
+  ],
+  "history":[
+    {
+      "id":2,
+      "clientName":"John Smith",
+
+      "phone":"2392939329",
+      "email":"mudassar@gmail.com",
+      "projectName":"3D game",
+      "file":"file/sc/app",
+      "status":"completed"
+    },
+    {
+      "id":3,
+      "clientName":"John Smith",
+      "phone":"2392939329",
+      "email":"mudassar@gmail.com",
+      "projectName":"3D game",
+      "file":"file/sc/app",
+      "status":"inprogress"
+    },
+    {
+      "id":6,
+      "clientName":"John Smith",
+      "phone":"2392939329",
+      "email":"mudassar@gmail.com",
+      "projectName":"3D game",
+      "file":"file/sc/app",
+      "status":"inprogress"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

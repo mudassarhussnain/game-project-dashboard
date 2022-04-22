@@ -1,0 +1,311 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Users List</h4>
+                        <p class="card-category"> Here are all the user's</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Sr#</th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>
+                                        City
+                                    </th>
+                                    <th>
+                                        Country
+                                    </th>
+                                    <th>Zip Code</th>
+                                    <th>
+                                        Action
+                                    </th>
+                                    
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of usersList; let i=index;">
+                                        <td>
+                                            {{i+1}}
+                                        </td>
+                                        <td>
+                                            {{user.firstName}} {{user.lastName}}
+                                        </td>
+                                        
+                                        <td>
+                                            {{user.phone}}
+                                        </td>
+                                        <td>
+                                            {{user.email}}
+                                        </td>
+                                        <td>
+                                            {{user.city}}
+                                        </td>
+                                        <td>
+                                            {{user.country}}
+                                        </td>
+                                        <td>
+                                            {{user.zipCode}}
+                                        </td>
+                                       <td><a (click)="deleteUser(user.id)"><i class="fa-solid fa-trash-can"></i></a>{{"    "}}
+                                    <a (click)="getUser(user.id)" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title mt-0"> Table on Plain Background</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Country
+                                    </th>
+                                    <th>
+                                        City
+                                    </th>
+                                    <th>
+                                        Salary
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            Dakota Rice
+                                        </td>
+                                        <td>
+                                            Niger
+                                        </td>
+                                        <td>
+                                            Oud-Turnhout
+                                        </td>
+                                        <td>
+                                            $36,738
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td>
+                                            Minerva Hooper
+                                        </td>
+                                        <td>
+                                            Curaçao
+                                        </td>
+                                        <td>
+                                            Sinaai-Waas
+                                        </td>
+                                        <td>
+                                            $23,789
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            Sage Rodriguez
+                                        </td>
+                                        <td>
+                                            Netherlands
+                                        </td>
+                                        <td>
+                                            Baileux
+                                        </td>
+                                        <td>
+                                            $56,142
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            4
+                                        </td>
+                                        <td>
+                                            Philip Chaney
+                                        </td>
+                                        <td>
+                                            Korea, South
+                                        </td>
+                                        <td>
+                                            Overland Park
+                                        </td>
+                                        <td>
+                                            $38,735
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            5
+                                        </td>
+                                        <td>
+                                            Doris Greene
+                                        </td>
+                                        <td>
+                                            Malawi
+                                        </td>
+                                        <td>
+                                            Feldkirchen in Kärnten
+                                        </td>
+                                        <td>
+                                            $63,542
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            6
+                                        </td>
+                                        <td>
+                                            Mason Porter
+                                        </td>
+                                        <td>
+                                            Chile
+                                        </td>
+                                        <td>
+                                            Gloucester
+                                        </td>
+                                        <td>
+                                            $78,615
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> <b>Update User's Profile</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="editUser">
+           
+            <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Fist Name" formControlName="firstName" type="text">
+                    <span class="text-danger"    
+                    *ngIf="(editUserControl.firstName.touched || submitted) && editUserControl.firstName.errors?.required">    
+                    Field required    
+                </span> 
+                  </mat-form-field>
+                  
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Last Name" formControlName="lastName" type="text">
+                    <span class="text-danger"    
+                    *ngIf="(editUserControl.lastName.touched || submitted) && editUserControl.lastName.errors?.required">    
+                    Field required    
+                </span> 
+                  </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Phone" formControlName="phone" type="text">
+                    <span class="text-danger"    
+                    *ngIf="(editUserControl.phone.touched || submitted) && editUserControl.phone.errors">    
+                    <span *ngIf="editUserControl.phone.errors?.required">
+                        Field required    
+                    </span>
+                    <span *ngIf="editUserControl.phone.errors?.minlength">
+                        Number must be minimum 11 digits
+                    </span>
+                    <span *ngIf="editUserControl.phone.errors?.maxlength">
+                        Number's maxmimum length is 16
+                    </span>
+                </span> 
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" formControlName="email" type="email">
+                    <span class="text-danger"    
+                    *ngIf="(editUserControl.email.touched || submitted) && editUserControl.email.errors">
+                    <span *ngIf="editUserControl.email.errors?.required">    
+                    Field required    
+                </span>
+                <span *ngIf="editUser.email.errors.Email">Email is invalid</span>
+                </span> 
+                  </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="City" formControlName="city" type="text">
+                    <span class="text-danger"    
+                    *ngIf="(editUserControl.city.touched || submitted) && editUserControl.city.errors?.required">    
+                    Field required    
+                </span> 
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Country" formControlName="country" type="text">
+                    <span class="text-danger"    
+                    *ngIf="(editUserControl.country.touched || submitted) && editUserControl.country.errors?.required">    
+                    Field required    
+                </span> 
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Zip Code" formControlName="zipCode" type="text">
+                    <span class="text-danger"    
+                    *ngIf="(editUserControl.zipCode.touched || submitted) && editUserControl.zipCode.errors?.required">    
+                    Field required    
+                </span> 
+                  </mat-form-field>
+                </div>
+            </div>
+            
+           
+            <div class="clearfix"></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button mat-raised-button type="submit" [disabled]="editUser.invalid" class="btn btn-danger pull-right" (click)="updateUser()">Update User</button>
+      </div>
+    </div>
+  </div>
+</div>

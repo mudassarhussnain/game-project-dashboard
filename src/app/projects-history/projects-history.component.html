@@ -1,0 +1,163 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <div class="row">
+                        <div class="col-md-10">
+                        <h4 class="card-title ">Old Projects List</h4>
+                        <p class="card-category">Here is the list of all projects</p>
+                    </div>
+                    <!-- <div class="col-md-2">
+                        <button data-toggle="modal" (click)="updateAndCreateProject('projectHistory','')"
+                        class="btn btn-secondary"  data-target="#exampleModal" data-whatever="@mdo">Add+</button>
+                </div> -->
+                </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Sr#</th>
+                                    <th>
+                                        Client Name
+                                    </th>
+                                    <th>Project Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>
+                                        File
+                                    </th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let project of projects; let i=index;">
+                                        <td>
+                                            {{i+1}}
+                                        </td>
+                                        <td>
+                                            {{project.clientName}}
+                                        </td>
+                                        <td>{{project.projectName}}</td>
+                                        <td>{{project.phone}}</td>
+                                        <td>{{project.email}}</td>
+                                        <td>{{project.file}}</td>
+                                        <td>{{project.status}}</td>
+
+
+                                        <td><a><i class="fa-solid fa-trash-can" ></i></a>{{" "}}
+                                            <a (click)="getProject(project.id)" data-toggle="modal"
+                                                data-target="#exampleModal" data-whatever="@mdo">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
+                                        </td>
+
+                                     </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" > <b>View Project </b></h5>
+                
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="createProjectForm">
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Client Name" formControlName="clientName" type="text">
+                                <span class="text-danger"
+                                    *ngIf="(projectHistory.clientName.touched || submitted) && projectHistory.clientName.errors?.required">
+                                    Field required
+                                </span>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Project Name" formControlName="projectName" type="text">
+                                <span class="text-danger"
+                                    *ngIf="(projectHistory.projectName.touched || submitted) && projectHistory.projectName.errors?.required">
+                                    Field required
+                                </span>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Phone" formControlName="phone" type="text">
+                                <span class="text-danger"
+                                    *ngIf="(projectHistory.phone.touched || submitted) && projectHistory.phone.errors?.required">
+                                    Field required
+                                </span>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Email" formControlName="email" type="text">
+                                <span class="text-danger"
+                                    *ngIf="(projectHistory.email.touched || submitted) && projectHistory.email.errors?.required">
+                                    Field required
+                                </span>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput  formControlName="file" type="file">
+                                <span class="text-danger"
+                                    *ngIf="(projectHistory.phone.touched || submitted) && projectHistory.phone.errors?.required">
+                                    Field required
+                                </span>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Status" formControlName="status" type="text">
+                                <span class="text-danger"
+                                    *ngIf="(projectHistory.status.touched || submitted) && projectHistory.status.errors?.required">
+                                    Field required
+                                </span>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                
+                    
+
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button  mat-raised-button type="button"
+                    class="btn btn-danger pull-right" *ngIf="modalStatus=='projectHistory'" (click)="createProject()" >Add Project</button>
+                <button  mat-raised-button type="button"
+                    class="btn btn-danger pull-right" *ngIf="modalStatus=='updateProject'" (click)="updateProject()" >Update Project</button>
+               
+            </div> -->
+        </div>
+    </div>
+</div>
